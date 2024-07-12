@@ -65,7 +65,7 @@ TaskList.propTypes = {
       id: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
       taskName: PropTypes.string,
       description: PropTypes.string,
-      priority: PropTypes.oneOf(['Low', 'Medium', 'High']),
+      priority: PropTypes.oneOf(['Low', 'Medium', 'High', 'NA']),
     })
   ).isRequired,
   deleteTaskHandler: PropTypes.func.isRequired,

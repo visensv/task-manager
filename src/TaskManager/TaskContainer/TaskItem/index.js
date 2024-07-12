@@ -20,7 +20,7 @@ TaskItem.propTypes = {
     id: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
     taskName: PropTypes.string,
     description: PropTypes.string,
-    priority: PropTypes.oneOf(['Low', 'Medium', 'High']),
+    priority: PropTypes.oneOf(['Low', 'Medium', 'High', 'NA']),
   }).isRequired,
   secondaryAction: PropTypes.func.isRequired,
   mainAction: PropTypes.func.isRequired,
