@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 import TextField from '@mui/material/TextField';
 
-const Input = ({ value, name, label, required, variant='outlined' }) => {
+const Input = ({ value, name, label, required, variant='outlined', multiline = false }) => {
     const [fieldValue, setFieldValue] = React.useState();
 
     React.useEffect(() => {
@@ -22,6 +22,7 @@ const Input = ({ value, name, label, required, variant='outlined' }) => {
             required={required}
             variant={variant}
             fullWidth
+            multiline={multiline}
         />
     );
 }
@@ -32,6 +33,7 @@ Input.propTypes = {
     label: PropTypes.string.isRequired,
     required: PropTypes.bool,
     variant: PropTypes.string,
+    multiline: PropTypes.bool,
 };
   
 export default Input;

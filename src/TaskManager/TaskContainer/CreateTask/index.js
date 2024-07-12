@@ -35,7 +35,7 @@ const CreateTask = ({ createTaskHandler, task }) => {
           <SelectField key={`priority-${resetKey}`} options={['Low', 'Medium', 'High']} label='Priority' name="priority" value={priority} />
         </Grid>
         <Grid item xs={12} md={12} lg={12}>
-          <Input key={`description-${resetKey}`} label='Description' name='description' value={description} />
+          <Input key={`description-${resetKey}`} label='Description' name='description' value={description} multiline={ true } />
         </Grid>
         <Grid item xs={12} md={12} lg={12}>
           <Button variant="contained" color="success" type='submit'>
