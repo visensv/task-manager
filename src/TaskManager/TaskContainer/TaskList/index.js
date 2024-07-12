@@ -25,11 +25,11 @@ const TaskList = ({ tasks, deleteTaskHandler, editTaskHandler, handleEditButtonC
   return (
     <>
       <Box sx={boxStyles}>
-      <Box sx={sortButtonStyles}>
+      {tasks?.length > 1 && <Box sx={sortButtonStyles}>
         <Button variant="contained" color="primary" onClick={() => handleSortButtonClick(tasks)}>
           Sort tasks by Priority
           </Button>
-          </Box>
+      </Box>}
         <Stack
           flexDirection={"row"}
           alignItems="center"
