@@ -5,11 +5,13 @@ import Stack from '@mui/material/Stack';
 import Box from '@mui/material/Box';
 import DialogBox from '../../Components/DialogBox';
 import CreateTask from '../CreateTask';
+import { Button } from '@mui/material';
 
 const boxStyles = { p: 5 };
+const sortButtonStyles = { pt: 2, pb: 2, display: 'flex', justifyContent: 'flex-end'};
 
 const TaskList = ({ tasks, deleteTaskHandler, editTaskHandler, handleEditButtonClick,
-  showEditModal, taskInEdit, handleDialogClose }) => {
+  showEditModal, taskInEdit, handleDialogClose, handleSortButtonClick }) => {
   const renderTasks = (tasks) => {
     return tasks.map((task) => {
       return <TaskItem
@@ -23,6 +25,11 @@ const TaskList = ({ tasks, deleteTaskHandler, editTaskHandler, handleEditButtonC
   return (
     <>
       <Box sx={boxStyles}>
+      <Box sx={sortButtonStyles}>
+        <Button variant="contained" color="primary" onClick={() => handleSortButtonClick(tasks)}>
+          Sort tasks by Priority
+          </Button>
+          </Box>
         <Stack
           flexDirection={"row"}
           alignItems="center"

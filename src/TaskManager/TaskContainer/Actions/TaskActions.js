@@ -1,10 +1,11 @@
-import { CREATE_TASK, DELETE_TASK, UPDATE_TASK, TOGGLE_EDIT_MODAL, TASK_IN_EDIT } from "../../../constants/actionTypes";
+import { CREATE_TASK, DELETE_TASK, UPDATE_TASK, TOGGLE_EDIT_MODAL, TASK_IN_EDIT, SET_TASK_ORDER } from "../../../constants/actionTypes";
 
 const createTask = (formObject) => ({
     type: CREATE_TASK,
     payload: {
         id: Date.now(),
         ...formObject,
+        priority: formObject.priority || 'NA',
     },
 });
 
@@ -28,4 +29,9 @@ const setTaskInEdit = (task) => ({
     payload: task,
 });
 
-export { createTask, deleteTask, updateTask, toggleEditModal, setTaskInEdit }
+const setTaskOrder = (tasks) => ({
+    type: SET_TASK_ORDER,
+    payload: tasks,
+});
+
+export { createTask, deleteTask, updateTask, toggleEditModal, setTaskInEdit, setTaskOrder }

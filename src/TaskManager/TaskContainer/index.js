@@ -6,7 +6,7 @@ import TaskList from './TaskList'
 import CreateTask from "./CreateTask"
 
 import { TaskReducer, InitialState } from "./Reducer/TaskReducer";
-import { createTask, deleteTask, setTaskInEdit, toggleEditModal, updateTask } from './Actions/TaskActions';
+import { createTask, deleteTask, setTaskInEdit, setTaskOrder, toggleEditModal, updateTask } from './Actions/TaskActions';
 
 
 
@@ -41,6 +41,20 @@ const TaskContainer = () => {
     dispatch(setTaskInEdit({}));
   }
 
+  const handleSortButtonClick = (tasks) => {
+    // Priority mapping to numerical values
+    const priorityMapping = {
+      "NA": 0,
+      'Low': 1,
+      'Medium': 2,
+      'High': 3
+    };
+    const sortedTasks = tasks.sort((a, b) => {
+      return priorityMapping[b.priority] - priorityMapping[a.priority];
+    });
+    dispatch(setTaskOrder(sortedTasks));
+  }
+
   return (
     <>
       <CreateTask
@@ -59,6 +73,7 @@ const TaskContainer = () => {
         open={showEditModal}
         handleDialogClose={handleDialogClose}
         taskInEdit={taskInEdit}
+        handleSortButtonClick={handleSortButtonClick}
       />
     </>
   )
