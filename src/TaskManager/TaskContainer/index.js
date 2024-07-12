@@ -54,8 +54,7 @@ const TaskContainer = () => {
         handleEditButtonClick={(task) => {
           dispatch(toggleEditModal(true));
           dispatch(setTaskInEdit(task));
-        }
-        }
+        }}
         showEditModal={showEditModal}
         open={showEditModal}
         handleDialogClose={handleDialogClose}

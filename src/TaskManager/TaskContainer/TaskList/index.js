@@ -8,7 +8,8 @@ import CreateTask from '../CreateTask';
 
 const boxStyles = { p: 5 };
 
-const TaskList = ({ tasks, deleteTaskHandler, editTaskHandler, handleEditButtonClick, showEditModal, taskInEdit, handleDialogClose }) => {
+const TaskList = ({ tasks, deleteTaskHandler, editTaskHandler, handleEditButtonClick,
+  showEditModal, taskInEdit, handleDialogClose }) => {
   const renderTasks = (tasks) => {
     return tasks.map((task) => {
       return <TaskItem

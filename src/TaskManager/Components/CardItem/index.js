@@ -13,11 +13,22 @@ const styles = {
   cardStyles: { width: 300, height: 300, display: 'flex', flexDirection: 'column', justifyContent: 'space-between' },
   cardContentStyles: { overflow: 'auto' },
   cardActionsStyles: { display: 'flex', justifyContent: 'space-between' },
+  lowPriorityStyles: { backgroundColor: '#e0f7fa' }, // Light blue background for low priority
+  mediumPriorityStyles: { backgroundColor: '#fff59d' }, // Light yellow background for medium priority
+  highPriorityStyles: { backgroundColor: '#ef9a9a' },
 };
 
-const CardItem = ({children, secondaryAction, mainAction, task}) => {
+const CardItem = ({ children, secondaryAction, mainAction, task }) => {
+  const { priority } = task;
+  
+  // Determine the priority style to apply
+  const priorityStyle = 
+    priority === 'Low' ? styles.lowPriorityStyles :
+    priority === 'Medium' ? styles.mediumPriorityStyles :
+        priority === 'High' ? styles.highPriorityStyles : {};
+  
   return (
-    <Card sx={styles.cardStyles}>
+    <Card sx={{...styles.cardStyles, ...priorityStyle}}>
       <CardContent sx={styles.cardContentStyles}>
         {children}
       </CardContent>
